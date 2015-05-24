@@ -1,0 +1,28 @@
+{
+    "name": "myproject",
+    "version": "0.0.1",
+  "repository" :
+  { "type" : "git"
+  , "url" : "https://github.com/mlloewen/npm-project.git"
+  },
+  "devDependencies": {
+    "stylus": "latest",
+    "onchange": "latest",
+    "axis": "latest",
+    "postcss-cli": "latest",
+    "lost": "latest",
+    "browserify": "latest",
+    "autoprefixer": "latest",
+    "browser-sync": "latest",
+    "parallelshell": "latest",
+    "cssnano": "latest",
+    "rupture": "latest"
+  },
+  "scripts": {
+    "stylus": "stylus -u axis -u rupture styles/*.styl -p >styles/style.css",
+    "postcss": "postcss -u autoprefixer -u lost -o muir_style.css styles/style.css",
+    "build:css": "npm run stylus && npm run postcss && npm run nano",
+    "nano": "cssnano muir_style.css muir_style.min.css",
+    "css:watch": "onchange styles/*.styl styles/imports/*.styl -- npm run build:css"
+  }
+}
